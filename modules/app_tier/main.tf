@@ -4,7 +4,7 @@ data "template_file" "app_init"{
   template = "${file("./scripts/app/init.sh.tpl")}"
 
   vars{
-  db_ip = "mongod://${var.db_instance_id}:27017/posts"
+  db_ip = "mongod://${var.db_instance_ip}:27017/posts"
   }
 }
 
