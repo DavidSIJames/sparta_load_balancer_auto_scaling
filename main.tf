@@ -288,10 +288,11 @@ resource "aws_autoscaling_group" "david_auto_group" {
   min_size             = 1
   max_size             = 3
   vpc_zone_identifier = ["${aws_subnet.David_public_subnet.id}"]
-  load_balancers=["${aws_lb.david_lb.id}"]
+
   tags{
     key = "Name"
     value ="david-app-${count.index + 1}"
+    propagate_at_launch = true
   }
   lifecycle {
     create_before_destroy = true
